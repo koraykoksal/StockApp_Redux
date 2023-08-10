@@ -32,7 +32,7 @@ import axios from "axios"
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { fetchFail, fetchStart, loginSuccess } from "../features/authSlice"
+import { fetchFail, fetchStart, loginSuccess, registerSuccess } from "../features/authSlice"
 
 
 const useauthApiCall = () => {
@@ -40,6 +40,7 @@ const useauthApiCall = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+  //*LOGIN
   const login = async (userData) => {
     
 
@@ -58,7 +59,7 @@ const useauthApiCall = () => {
     } catch (error) {
       console.log(error)
       dispatch(fetchFail())
-      toastErrorNotify(error.repsonse.data.non_field)
+      toastErrorNotify(error.repsonse.data.non_field_errors[0])
     }
 
 
@@ -66,7 +67,7 @@ const useauthApiCall = () => {
   }
 
 
-
+  //*LOGOUT
   const logout = async (userData) => {
     
 
@@ -85,14 +86,41 @@ const useauthApiCall = () => {
     } catch (error) {
       console.log(error)
       dispatch(fetchFail())
-      toastErrorNotify(error.repsonse.data.non_field)
+      toastErrorNotify(error.repsonse.data.non_field_errors[0])
     }
 
 
 
   }
 
-  return {login,logout}
+
+
+  const register = async (userData) => {
+    
+
+    //const BASE_URL = "https://13602.fullstack.clarusway.com"
+
+    dispatch(fetchStart())
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/account/register/`,
+        userData
+      )
+      dispatch(registerSuccess(data))
+      toastSuccessNotify("register islemi basarili")
+      //logut işlemi olduktan sonra ilgili sayfaya gönder
+      navigate("/stock")
+    } catch (error) {
+      console.log(error)
+      dispatch(fetchFail())
+      toastErrorNotify(error.repsonse.data.non_field_errors[0])
+    }
+
+
+
+  }
+
+  return {login,logout,register}
 
 }
 
