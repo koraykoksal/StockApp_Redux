@@ -59,25 +59,28 @@ export const MenuListItems = () => {
 
   return (
     <div>
-        <List>
+      <List>
         {icons.map((item, index) => (
           <ListItem
-          key={index}
-          disablePadding
-          onClick={() => navigate(item.url)}
-          //! link üzerinde hover işlemi yaparken svg dosyasınada hover işlemini otomatik olarak yapar
-          sx={{
-            color: "white",
-            "& .MuiSvgIcon-root": { color: "white" },
-            "&:hover": { color: "red" },
-            "&:hover .MuiSvgIcon-root": { color: "red" },
-          }}
-        >
-          <ListItemButton>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.title} />
-          </ListItemButton>
-        </ListItem>
+            key={index}
+            disablePadding
+            onClick={() => {
+              item.url.includes("http" || "www")
+                ? window.open(item.url, "_blank")
+                : navigate(item.url)
+            }}
+            sx={{
+              color: "white",
+              "& .MuiSvgIcon-root": { color: "white" },
+              "&:hover": { color: "red" },
+              "&:hover .MuiSvgIcon-root": { color: "red" },
+            }}
+          >
+            <ListItemButton>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </ListItem>
         ))}
       </List>
     </div>

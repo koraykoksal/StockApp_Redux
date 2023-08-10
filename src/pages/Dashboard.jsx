@@ -11,12 +11,15 @@ import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import { MenuListItems } from "../components/MenuListItems"
 import { Outlet } from "react-router-dom"
+import useauthApiCall from "../hooks/useauthApiCall"
 
 const drawerWidth = 240
 
 function Dashboard(props) {
   const { window } = props
   const [mobileOpen, setMobileOpen] = React.useState(false)
+
+  const {logout} = useauthApiCall()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
