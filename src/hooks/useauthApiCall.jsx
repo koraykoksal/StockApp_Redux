@@ -43,12 +43,12 @@ const useauthApiCall = () => {
   const login = async (userData) => {
     
 
-    const BASE_URL = "https://13602.fullstack.clarusway.com"
+    //const BASE_URL = "https://13602.fullstack.clarusway.com"
 
     dispatch(fetchStart())
     try {
       const { data } = await axios.post(
-        `${BASE_URL}/account/auth/login/`,
+        `${import.meta.env.VITE_BASE_URL}/account/auth/login/`,
         userData
       )
       dispatch(loginSuccess(data))
@@ -65,15 +65,17 @@ const useauthApiCall = () => {
 
   }
 
+
+
   const logout = async (userData) => {
     
 
-    const BASE_URL = "https://13602.fullstack.clarusway.com"
+    //const BASE_URL = "https://13602.fullstack.clarusway.com"
 
     dispatch(fetchStart())
     try {
       const { data } = await axios.post(
-        `${BASE_URL}/account/auth/logout/`,
+        `${import.meta.env.VITE_BASE_URL}/account/auth/logout/`,
         userData
       )
       dispatch(loginSuccess(data))
