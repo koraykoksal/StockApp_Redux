@@ -4,7 +4,13 @@ import ListItem from "@mui/material/ListItem"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize"
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
+import InventoryIcon from "@mui/icons-material/Inventory"
+import StoreIcon from "@mui/icons-material/Store"
+import StarsIcon from "@mui/icons-material/Stars"
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount"
 import { useNavigate } from 'react-router-dom'
 
 
@@ -55,14 +61,23 @@ export const MenuListItems = () => {
     <div>
         <List>
         {icons.map((item, index) => (
-          <ListItem key={index} disablePadding onClick={()=>navigate(item.url)}>
-            <ListItemButton>
-              <ListItemIcon>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.title} />
-            </ListItemButton>
-          </ListItem>
+          <ListItem
+          key={index}
+          disablePadding
+          onClick={() => navigate(item.url)}
+          //! link üzerinde hover işlemi yaparken svg dosyasınada hover işlemini otomatik olarak yapar
+          sx={{
+            color: "white",
+            "& .MuiSvgIcon-root": { color: "white" },
+            "&:hover": { color: "red" },
+            "&:hover .MuiSvgIcon-root": { color: "red" },
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.title} />
+          </ListItemButton>
+        </ListItem>
         ))}
       </List>
     </div>
