@@ -94,7 +94,7 @@ const useauthApiCall = () => {
   }
 
 
-
+  //*REGISTER
   const register = async (userData) => {
     
 
