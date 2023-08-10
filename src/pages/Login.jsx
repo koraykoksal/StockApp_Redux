@@ -10,9 +10,15 @@ import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import { Formik, Form } from "formik"
 import { object, string } from "yup"
-import { login } from "../hooks/authApiCall"
+//mport { login } from "../hooks/authApiCall"
+import useauthApiCall from "../hooks/useauthApiCall"
 
 const Login = () => {
+
+
+  const {login} = useauthApiCall()
+  
+
   //? harici validasyon şemasi
   const loginSchema = object({
     email: string()
