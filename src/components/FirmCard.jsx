@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
 import EditIcon from "@mui/icons-material/Edit"
-
+import {btnStyle} from '../style/globalStyles'
 
 const FirmCard = ({firm}) => {
   return (
@@ -43,8 +43,8 @@ const FirmCard = ({firm}) => {
       </Typography>
 
       <CardActions>
-        <EditIcon />
-        <DeleteOutlineIcon />
+        <EditIcon sx={btnStyle}/>
+        <DeleteOutlineIcon sx={btnStyle} />
       </CardActions>
     </Card>
   )
