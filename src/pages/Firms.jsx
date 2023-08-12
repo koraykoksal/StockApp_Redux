@@ -14,7 +14,7 @@ const Firms = () => {
     getStockData('firms')
   }, [])
 
-  console.log(firms)
+  console.log("firms data:",firms)
   
   return (
 
