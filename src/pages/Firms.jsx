@@ -1,49 +1,88 @@
-import { Button, Grid, Typography } from "@mui/material"
-import axios from "axios"
-import { useEffect,useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchFail, fetchStart } from "../features/authSlice"
+import { useEffect, useState } from "react"
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
+import Grid from "@mui/material/Grid"
+import { useSelector } from "react-redux"
 import useStockCall from "../hooks/useStockCall"
 import FirmCard from "../components/FirmCard"
 import FirmModal from "../components/FirmModal"
 
-const Firms = () => {
+// import axios from "axios"
+// import { useDispatch } from "react-redux"
+// import { fetchFail, fetchStart, getFirmsSuccess } from "../features/stockSlice"
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const Firms = () => {
+  // const { token } = useSelector((state) => state.auth)
+  // const dispatch = useDispatch()
+
+  // const getFirms = async () => {
+  //   dispatch(fetchStart())
+  //   try {
+  //     const { data } = await axios(
+  //       `${import.meta.env.VITE_BASE_URL}/stock/firms/`,
+  //       {
+  //         headers: { Authorization: `Token ${token}` },
+  //       }
+  //     )
+  //     dispatch(getFirmsSuccess(data))
+  //     console.log(data)
+  //   } catch (error) {
+  //     dispatch(fetchFail())
+  //     console.log(error)
+  //   }
+  // }
 
   const { getStockData } = useStockCall()
   const { firms } = useSelector((state) => state.stock)
 
+  const [info, setInfo] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    image: "",
+  })
+
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => {
+    setOpen(false)
+    setInfo({ name: "", phone: "", address: "", image: "" })
+  }
+
   useEffect(() => {
-    getStockData('firms')
+    // getFirms()
+    getStockData("firms")
   }, [])
 
-  console.log("firms data:",firms)
-  
   return (
-
     <div>
+      <Typography variant="h4" color={"error"} mb={3}>
+        Firms
+      </Typography>
+      <Button variant="contained" onClick={handleOpen}>
+        NEW FIRM
+      </Button>
 
-    <Typography variant="h4" color={"error"} mb={3}>Firm</Typography>
+      <FirmModal
+        open={open}
+        handleClose={handleClose}
+        info={info}
+        setInfo={setInfo}
+      />
 
-    <Button variant="contained" onClick={handleOpen}>New Firm</Button>
-
-    <Grid container justifyContent={"center"} spacing={2}>
-    {firms.map((firm)=>(
-      <Grid item key={firm.id}>
-        <FirmCard firm={firm}/>
+      <Grid container justifyContent={"center"} spacing={2}>
+        {firms?.map((firm) => (
+          <Grid item key={firm.id}>
+            <FirmCard
+              firm={firm}
+              handleOpen={handleOpen}
+              info={info}
+              setInfo={setInfo}
+            />
+          </Grid>
+        ))}
       </Grid>
-      ))}
-    </Grid>
-
-    <FirmModal open={open} handleClose={handleClose}/>
-
     </div>
-
-
-
   )
 }
 
