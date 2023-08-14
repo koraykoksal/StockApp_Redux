@@ -8,8 +8,12 @@ import Typography from '@mui/material/Typography';
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline"
 import EditIcon from "@mui/icons-material/Edit"
 import {btnStyle} from '../style/globalStyles'
+import useStockCall from '../hooks/useStockCall';
 
 const FirmCard = ({firm}) => {
+
+  const {deleteStockData}= useStockCall()
+
   return (
 <Card
       sx={{
@@ -43,8 +47,11 @@ const FirmCard = ({firm}) => {
       </Typography>
 
       <CardActions>
+        {/* edit button */}
         <EditIcon sx={btnStyle}/>
-        <DeleteOutlineIcon sx={btnStyle} />
+        {/* delete button */}
+        <DeleteOutlineIcon sx={btnStyle} 
+        onClick={()=>deleteStockData('firms',firm.id)}/>
       </CardActions>
     </Card>
   )
