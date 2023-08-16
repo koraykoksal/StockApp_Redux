@@ -13,7 +13,7 @@ import { useSelector } from "react-redux"
 
 export default function ProductModal({ open, handleClose }) {
   const { postStockData } = useStockCall()
-  const { categories } = useSelector((state) => state.stock)
+  const { categories,brands } = useSelector((state) => state.stock)
 
   const [info, setInfo] = useState({ name: "", category_id: "", brand_id: "" })
 
@@ -26,12 +26,17 @@ export default function ProductModal({ open, handleClose }) {
     console.log(info.id)
     postStockData("products", info)
     handleClose()
+    setInfo({name: "", category_id: "", brand_id: "" })
   }
   return (
     <div>
-      <Modal
+
+<Modal
         open={open}
-        onClose={handleClose}
+        onClose={() => {
+          setInfo({ name: "", category_id: "", brand_id: "" })
+          handleClose()
+        }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -42,10 +47,10 @@ export default function ProductModal({ open, handleClose }) {
             onSubmit={handleSubmit}
           >
             <FormControl fullWidth>
-              <InputLabel id="categories">Categories</InputLabel>
+              <InputLabel id="category">Categories</InputLabel>
               <Select
                 labelId="category"
-                id="categories"
+                id="category"
                 name="category_id"
                 value={info?.category_id || ""}
                 label="category"
@@ -58,13 +63,31 @@ export default function ProductModal({ open, handleClose }) {
                 ))}
               </Select>
             </FormControl>
+
+            <FormControl fullWidth>
+              <InputLabel id="brand">Brands</InputLabel>
+              <Select
+                labelId="brand"
+                id="brand"
+                name="brand_id"
+                value={info?.brand_id || ""}
+                label="brand"
+                onChange={handleChange}
+              >
+                {brands?.map(({ id, name }) => (
+                  <MenuItem key={id} value={id}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <TextField
               label="Product Name"
               name="name"
               id="name"
               type="text"
               variant="outlined"
-              value={info?.name}
+              value={info?.name || ""}
               required
               onChange={handleChange}
             />
@@ -75,6 +98,7 @@ export default function ProductModal({ open, handleClose }) {
           </Box>
         </Box>
       </Modal>
+      
     </div>
   )
 }
