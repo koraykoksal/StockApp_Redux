@@ -129,6 +129,7 @@ export default function ProductTable() {
         pageSizeOptions={[20,50,75,100]}
         checkboxSelection
         disableRowSelectionOnClick
+        //slot probu ile tabloya grid filter seçeneği eklenebilir
         slots={{toolbar:GridToolbar}}
       />
     </Box>
