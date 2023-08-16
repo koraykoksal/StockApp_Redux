@@ -1,6 +1,6 @@
 import * as React from "react"
 import Box from "@mui/material/Box"
-import { DataGrid,GridActionsCellItem } from "@mui/x-data-grid"
+import { DataGrid,GridActionsCellItem,GridToolbar } from "@mui/x-data-grid"
 import { useSelector } from "react-redux"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import {btnStyle} from '../style/globalStyles'
@@ -129,6 +129,7 @@ export default function ProductTable() {
         pageSizeOptions={[20,50,75,100]}
         checkboxSelection
         disableRowSelectionOnClick
+        slots={{toolbar:GridToolbar}}
       />
     </Box>
   )
