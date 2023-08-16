@@ -1,51 +1,34 @@
-import ProductTable from "../components/ProductTable"
 import { useEffect, useState } from "react"
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
 import { useSelector } from "react-redux"
 import useStockCall from "../hooks/useStockCall"
 import ProductModal from "../components/ProductModal"
-import Typography from "@mui/material/Typography"
-import Button from "@mui/material/Button"
-
+import ProductTable from "../components/ProductTable"
 
 const Products = () => {
-
   const { getStockData } = useStockCall()
-  const { firms } = useSelector((state) => state.stock)
-
-  const [info, setInfo] = useState({
-    name: "",
-    phone: "",
-    address: "",
-    image: "",
-  })
+  const { products } = useSelector((state) => state.stock)
 
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
-  const handleClose = () => {
-    setOpen(false)
-    setInfo({ name: "", phone: "", address: "", image: "" })
-  }
+  const handleClose = () => setOpen(false)
 
   useEffect(() => {
-    // getFirms()
-    getStockData("firms")
+    getStockData("products")
+    getStockData("categories")
   }, [])
 
   return (
     <div>
       <Typography variant="h4" color={"error"} mb={3}>
-        Firms
+        Products
       </Typography>
       <Button variant="contained" onClick={handleOpen}>
         NEW PRODUCT
       </Button>
 
-      <ProductModal
-        open={open}
-        handleClose={handleClose}
-        info={info}
-        setInfo={setInfo}
-      />
+      <ProductModal open={open} handleClose={handleClose} />
       <ProductTable/>
     </div>
   )

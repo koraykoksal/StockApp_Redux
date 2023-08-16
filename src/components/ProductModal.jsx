@@ -1,35 +1,30 @@
 import { useState } from "react"
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
-import Typography from "@mui/material/Typography"
 import TextField from "@mui/material/TextField"
 import Modal from "@mui/material/Modal"
-import { modalStyle } from "../style/globalStyles"
+import InputLabel from "@mui/material/InputLabel"
+import MenuItem from "@mui/material/MenuItem"
+import FormControl from "@mui/material/FormControl"
+import Select from "@mui/material/Select"
+import {modalStyle} from "../style/globalStyles"
 import useStockCall from "../hooks/useStockCall"
+import { useSelector } from "react-redux"
 
-export default function ProductModal({ open, handleClose, info, setInfo }) {
-  const { postStockData, putStockData } = useStockCall()
-  //   const [info, setInfo] = useState({
-  //     name: "",
-  //     phone: "",
-  //     address: "",
-  //     image: "",
-  //   })
+export default function ProductModal({ open, handleClose }) {
+  const { postStockData } = useStockCall()
+  const { categories } = useSelector((state) => state.stock)
+
+  const [info, setInfo] = useState({ name: "", category_id: "", brand_id: "" })
 
   const handleChange = (e) => {
-    // const { name, value } = e.target
     setInfo({ ...info, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(info.id)
-    if (info.id) {
-      putStockData("firms", info)
-    } else {
-      postStockData("firms", info)
-    }
-
+    postStockData("products", info)
     handleClose()
   }
   return (
@@ -46,6 +41,23 @@ export default function ProductModal({ open, handleClose, info, setInfo }) {
             component="form"
             onSubmit={handleSubmit}
           >
+            <FormControl fullWidth>
+              <InputLabel id="categories">Categories</InputLabel>
+              <Select
+                labelId="category"
+                id="categories"
+                name="category_id"
+                value={info?.category_id || ""}
+                label="category"
+                onChange={handleChange}
+              >
+                {categories?.map(({ id, name }) => (
+                  <MenuItem key={id} value={id}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <TextField
               label="Product Name"
               name="name"
