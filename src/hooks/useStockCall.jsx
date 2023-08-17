@@ -58,7 +58,32 @@ const useStockCall = () => {
     }
   }
 
-  return { getStockData, deleteStockData, postStockData, putStockData }
+
+    // ? Products, categories ve brands isteklerinin Promise.all ile es zamanli alinmasi.
+    const getProdCatBrands = async () => {
+      dispatch(fetchStart())
+      try {
+        const [products, categories, brands] = await Promise.all([
+          axiosWithToken.get("stock/products/"),
+          axiosWithToken.get("stock/categories/"),
+          axiosWithToken.get("stock/brands/"),
+        ])
+  
+        dispatch(
+          getProdCatBrandsSuccess([
+            products?.data,
+            categories?.data,
+            brands?.data,
+          ])
+        )
+      } catch (error) {
+        console.log(error)
+        dispatch(fetchFail())
+        toastErrorNotify(`Data can not be fetched`)
+      }
+    }
+
+  return { getStockData, deleteStockData, postStockData, putStockData,getProdCatBrands }
 }
 
 export default useStockCall
