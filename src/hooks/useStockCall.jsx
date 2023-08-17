@@ -1,4 +1,4 @@
-import { fetchFail, fetchStart, getStockSuccess } from "../features/stockSlice"
+import { fetchFail, fetchStart, getStockSuccess,getProdCatBrandsSuccess } from "../features/stockSlice"
 import { useDispatch } from "react-redux"
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
 import useAxios from "./useAxios"
