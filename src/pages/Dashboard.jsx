@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography"
 import { MenuListItems } from "../components/MenuListItems"
 import { Outlet } from "react-router-dom"
 import useauthApiCall from "../hooks/useauthApiCall"
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const drawerWidth = 240
 
@@ -61,9 +62,11 @@ function Dashboard(props) {
             Stock App
           </Typography>
 
-          <Button variant="contained" onClick={() => logout()}>
+          {/* <Button variant="contained" onClick={() => logout()}>
             Logout
-          </Button>
+          </Button> */}
+          <LogoutIcon sx={{'&:hover':{cursor:'pointer'}}} onClick={()=>logout()}/>
+          
         </Toolbar>
       </AppBar>
       <Box

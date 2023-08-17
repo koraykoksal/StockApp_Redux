@@ -80,7 +80,7 @@ const useauthApiCall = () => {
         userData
       )
       dispatch(loginSuccess(data))
-      toastSuccessNotify("login islemi basarili")
+      toastSuccessNotify("logout islemi basarili")
       //logut işlemi olduktan sonra ilgili sayfaya gönder
       navigate("/")
     } catch (error) {
