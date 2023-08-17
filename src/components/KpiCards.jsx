@@ -11,7 +11,7 @@ import { useSelector } from "react-redux"
 const KpiCards = () => {
 
   const {sales,purchases} = useSelector((state)=>state.stock)
-  console.log(purchases)
+
   const totalSales= sales?.map((item)=>Number(item.price_total)).reduce((acc,sale)=>acc+sale,0)
 
   const totalPurchases= purchases?.map((item)=>Number(item.price_total)).reduce((acc,sale)=>acc+sale,0)

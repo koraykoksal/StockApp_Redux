@@ -20,7 +20,6 @@ const Charts = () => {
     price: Number(item.price_total),
   }))
 
-  console.log(salesData)
 
   return (
     <Grid container justifyContent='center' spacing={3} mt={4}>
