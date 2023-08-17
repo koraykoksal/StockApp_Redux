@@ -4,10 +4,18 @@ import PaymentsIcon from "@mui/icons-material/Payments"
 import { deepPurple, pink, amber } from "@mui/material/colors"
 import { Paper, Grid, Avatar } from "@mui/material"
 import { Typography } from "@mui/material"
+import { useSelector } from "react-redux"
 
 
 
 const KpiCards = () => {
+
+  const {sales,purchases} = useSelector((state)=>state.stock)
+  console.log(purchases)
+  const totalSales= sales?.map((item)=>Number(item.price_total)).reduce((acc,sale)=>acc+sale,0)
+
+  const totalPurchases= purchases?.map((item)=>Number(item.price_total)).reduce((acc,sale)=>acc+sale,0)
+
   const cardData = [
     {
       id: 1,
@@ -15,7 +23,7 @@ const KpiCards = () => {
       bgColor: deepPurple[100],
       color: deepPurple[700],
       title: "SALES",
-      value: "$48000",
+      value: `$ ${totalSales}`,
     },
     {
       id: 2,
@@ -23,7 +31,7 @@ const KpiCards = () => {
       bgColor: pink[100],
       color: pink[700],
       title: "PROFIT",
-      value: "$32000",
+      value: `$ ${totalSales - totalPurchases}`,
     },
     {
       id: 3,
@@ -31,7 +39,7 @@ const KpiCards = () => {
       bgColor: amber[100],
       color: amber[700],
       title: "PURCHASES",
-      value: "$4800",
+      value: `$ ${totalPurchases}`,
     },
   ]
 
