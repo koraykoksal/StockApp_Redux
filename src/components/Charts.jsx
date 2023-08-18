@@ -15,7 +15,7 @@ const Charts = () => {
     price: Number(item.price_total),
   }))
 
-  
+
 
   const purchasesData = purchases?.map((item) => ({
     date: item.createds,
@@ -32,7 +32,7 @@ const Charts = () => {
         className="mt-4"
         data={salesData}  //x ekseni
         index="date"
-        categories={["Quantity", "Price"]}
+        categories={["quantity", "price"]}
         colors={["red", "blue"]}
         valueFormatter={dataFormatter}
       />
@@ -46,7 +46,7 @@ const Charts = () => {
         className="mt-4"
         data={purchasesData}  //x ekseni
         index="date"
-        categories={["Price"]}
+        categories={["price"]}
         colors={["green"]}
         valueFormatter={dataFormatter}
       />
