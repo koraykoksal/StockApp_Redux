@@ -3,7 +3,7 @@ import { Card, Title, LineChart } from "@tremor/react";
 import { useSelector } from "react-redux";
 
 const dataFormatter = (number) =>
-  `${Intl.NumberFormat("us").format(number).toString()}%`
+  `${Intl.NumberFormat("us").format(number).toString()}`
 
 const Charts = () => {
 
@@ -14,6 +14,8 @@ const Charts = () => {
     quantity: item.quantity,
     price: Number(item.price_total),
   }))
+
+  
 
   const purchasesData = purchases?.map((item) => ({
     date: item.createds,
