@@ -5,5 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   //vite ile build alacağım zaman derleme işlemini build klasörü altında yapar
-  build:{outDir:"./build"}
+  build:{outDir:"./build"},
+  server: {
+    port: 3000,
+  }
 })
