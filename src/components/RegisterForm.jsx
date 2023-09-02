@@ -38,6 +38,7 @@ const RegisterForm = ({
       <Form>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField
+          data-test="userName"
             label="User Name"
             name="username"
             id="userName"
@@ -50,6 +51,7 @@ const RegisterForm = ({
             helperText={errors.username}
           />
           <TextField
+          data-test="firstName"
             label="First Name"
             name="first_name"
             id="firstName"
@@ -62,6 +64,7 @@ const RegisterForm = ({
             helperText={errors.first_name}
           />
           <TextField
+          data-test="lastName"
             label="Last Name"
             name="last_name"
             id="last_name"
@@ -74,6 +77,7 @@ const RegisterForm = ({
             helperText={errors.last_name}
           />
           <TextField
+          data-test="email"
             label="Email"
             name="email"
             id="email"
@@ -86,6 +90,7 @@ const RegisterForm = ({
             helperText={errors.email}
           />
           <TextField
+          data-test="password"
             label="password"
             name="password"
             id="password"
@@ -97,7 +102,7 @@ const RegisterForm = ({
             error={touched.password && Boolean(errors.password)}
             helperText={errors.password}
           />
-          <Button type="submit" variant="contained" size="large">
+          <Button data-test="sbmtRegister" type="submit" variant="contained" size="large">
             Submit
           </Button>
         </Box>
