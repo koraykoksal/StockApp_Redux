@@ -65,7 +65,7 @@ function Dashboard(props) {
           {/* <Button variant="contained" onClick={() => logout()}>
             Logout
           </Button> */}
-          <LogoutIcon sx={{'&:hover':{cursor:'pointer'}}} onClick={()=>logout()}/>
+          <LogoutIcon data-test='cypress_logouthBtn' sx={{'&:hover':{cursor:'pointer'}}} onClick={()=>logout()}/>
           
         </Toolbar>
       </AppBar>
