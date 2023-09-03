@@ -47,6 +47,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
             onSubmit={handleSubmit}
           >
             <TextField
+            data-test="firmName"
               label="Firm Name"
               name="name"
               id="name"
@@ -58,6 +59,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
             />
 
             <TextField
+            data-test="firmPhone"
               label="Phone"
               name="phone"
               id="phone"
@@ -68,6 +70,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
               onChange={handleChange}
             />
             <TextField
+            data-test="firmAddress"
               label="Address"
               name="address"
               id="address"
@@ -79,6 +82,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
             />
 
             <TextField
+            data-test="firmImage"
               label="Image"
               name="image"
               id="image"
@@ -89,7 +93,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
               onChange={handleChange}
             />
 
-            <Button variant="contained" type="submit">
+            <Button data-test="firmsSbmt" variant="contained" type="submit">
               Submit
             </Button>
           </Box>
