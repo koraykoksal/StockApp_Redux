@@ -25,26 +25,28 @@ export default function FirmCard({ firm, handleOpen, info, setInfo }) {
       }}
     >
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography data-test="firmCardName" gutterBottom variant="h5" component="div">
           {firm.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography data-test="firmCardAdress" variant="body2" color="text.secondary">
           {firm.address}
         </Typography>
       </CardContent>
       <CardMedia
+      data-test="firmCardImage"
         sx={{ p: 1, objectFit: "contain", height: 140 }}
         image={firm.image}
         title={firm.name}
         component="img"
       />
 
-      <Typography variant="body2" color="text.secondary">
+      <Typography data-test="firmCardPhone" variant="body2" color="text.secondary">
         {firm.phone}
       </Typography>
 
       <CardActions>
         <EditIcon
+        data-test="editBtn"
           sx={btnStyle}
           onClick={() => {
             handleOpen()
@@ -52,6 +54,7 @@ export default function FirmCard({ firm, handleOpen, info, setInfo }) {
           }}
         />
         <DeleteOutlineIcon
+        data-test="deleteBtn"
           sx={btnStyle}
           onClick={() => deleteStockData("firms", firm.id)}
         />
