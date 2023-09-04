@@ -91,12 +91,22 @@ Stock App
 └── vite.config.js
 ```
 
+## Photos
 
+#Login Page
+![Screenshot 2023-09-04 at 11 52 40](https://github.com/koraykoksal/StockApp_Redux/assets/88422590/d5c350ff-b75a-4915-a5b7-135743151396)
 
+# Dashboard
+![Screenshot 2023-09-04 at 11 53 14](https://github.com/koraykoksal/StockApp_Redux/assets/88422590/ca85e69e-97d0-4677-b756-513f078ef878)
 
+# Firms Page
+![Screenshot 2023-09-04 at 11 53 26](https://github.com/koraykoksal/StockApp_Redux/assets/88422590/b6ced0b0-663d-4430-8f8d-f807a263de0c)
 
+# New Firm Modal
+![Screenshot 2023-09-04 at 11 53 41](https://github.com/koraykoksal/StockApp_Redux/assets/88422590/fc7e6b9d-9f0a-4c8b-8b58-34791e87ec07)
 
-
+# Firm Edit Modal
+![Screenshot 2023-09-04 at 11 53 52](https://github.com/koraykoksal/StockApp_Redux/assets/88422590/5326021f-ff56-44dd-914d-a99a0a600c6e)
 
 
 
