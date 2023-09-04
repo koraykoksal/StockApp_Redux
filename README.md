@@ -1,6 +1,6 @@
 # Stock-App With React + Vite
 
-## Libraries
+## Packages
 - `@reduxjs/toolkit`
 - `react-redux`
 - `axios`
