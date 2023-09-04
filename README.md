@@ -93,7 +93,7 @@ Stock App
 
 ## Photos
 
-#Login Page
+# Login Page
 ![Screenshot 2023-09-04 at 11 52 40](https://github.com/koraykoksal/StockApp_Redux/assets/88422590/d5c350ff-b75a-4915-a5b7-135743151396)
 
 # Dashboard
