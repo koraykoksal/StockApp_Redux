@@ -28,6 +28,10 @@
 <a href="https://redux-stock-app.vercel.app" target="_blank">Stock App Live Link</a>
 
 
+# Important Note !
+You will need manager permit after register for your user. You can contact with me for that. :)
+
+
 ## Project Skeleton
 
 ```
