@@ -22,9 +22,9 @@
 -`pnpm dev`
 
 ## API
-<h3>Django API was used in project</h3>
+<h4>Django API was used in project</h4>
 
-
+## Live Link
 <a href="https://redux-stock-app.vercel.app">Stock App Live Link</a>
 
 
