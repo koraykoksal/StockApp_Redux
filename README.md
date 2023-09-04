@@ -25,7 +25,7 @@
 <h4>Django API was used in project</h4>
 
 ## Live Link
-<a href="https://redux-stock-app.vercel.app">Stock App Live Link</a>
+<a href="https://redux-stock-app.vercel.app" target="_blank">Stock App Live Link</a>
 
 
 ## Project Skeleton
