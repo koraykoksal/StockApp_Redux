@@ -1,8 +1,113 @@
-# React + Vite
+# Stock-App With React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Libraries
+- `@reduxjs/toolkit`
+- `react-redux`
+- `axios`
+- `formik`
+- `react-router-dom`
+- `@mui/material-ui`
+- `@emotion/react`
+- `@emotion/styled`
+- `@formspree/react`
+- `@mui/icons-material`
+- `react-toastify`
+- `redux-persist`
+- `yup`
 
-Currently, two official plugins are available:
+## To Run The Program
+-`open project in vscode`
+-`open in integreted terminal`
+-`pnpm`
+-`pnpm dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## API
+<h3>Django API was used in project</h3>
+
+
+
+
+## Project Skeleton
+
+```
+Stock App
+|
+├── public
+│     └── favicon.png
+├── src
+│    ├── app
+│    │     └── store.jsx
+│    ├── assets
+│    │     └── img
+│    │          └── 404.png
+│    │          └── blogApp-favicon.png
+│    │          └── contactImg.jpeg
+│    │          └── KBLOG-LOGO.png
+│    │          └── noImage.png
+│    │     └── react.svg
+│    ├── components
+│    │     ├── AlertModal.jsx
+│    │     └── ContactForm.jsx
+|    |     └── Footers.jsx
+|    |     └── Footers.jsx
+|    |     └── NavBars.jsx
+|    |     └── PostCards.jsx
+|    |     └── PostModal.jsx
+|    |     └── RegisterForm.jsx
+|    |     └── UpdateModal.jsx
+|    |     └── UsersPost.jsx
+│    ├── features
+│    │     └── autSlice.jsx
+|          └── blogSlice.jsx
+│    ├── helper
+│    │     └── postTextSchema.js
+|    |     └── ToastNotify.js
+│    ├── hooks
+│    │     └── useAuthCall.jsx
+|    |     └── useBlogCall.jsx
+│    ├── pages
+│    │     └── About.jsx
+|    |     └── Contact.jsx
+|    |     └── Draft.jsx
+|    |     └── Home.jsx
+|    |     └── Login.jsx
+|    |     └── MyPost.jsx
+|    |     └── NotFound.jsx
+|    |     └── PostDetail.jsx
+|    |     └── Profile.jsx
+|    |     └── Register.jsx
+│    ├── router
+│    │     └── AppRouter.jsx
+|    |     └── PrivateRouter.jsx
+│    ├── styles
+│    ├── App.jsx
+│    ├── App.css
+│    ├── main.jsx
+│    └── index.css
+├── package.json
+├── .env
+└── pnpm-lock.yaml
+└── index.html
+└── postcss.config.js
+└── tailwind.config.js
+└── vite.config.js
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
