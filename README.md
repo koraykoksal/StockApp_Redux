@@ -38,48 +38,45 @@ Stock App
 │    ├── app
 │    │     └── store.jsx
 │    ├── assets
-│    │     └── img
-│    │          └── 404.png
-│    │          └── blogApp-favicon.png
-│    │          └── contactImg.jpeg
-│    │          └── KBLOG-LOGO.png
-│    │          └── noImage.png
-│    │     └── react.svg
+│    │     └── favicon.png
+│    │     └── loading.gif
 │    ├── components
-│    │     ├── AlertModal.jsx
-│    │     └── ContactForm.jsx
-|    |     └── Footers.jsx
-|    |     └── Footers.jsx
-|    |     └── NavBars.jsx
-|    |     └── PostCards.jsx
-|    |     └── PostModal.jsx
+│    │     ├── BrandCard.jsx
+│    │     └── BrandModal.jsx
+|    |     └── Charts.jsx
+|    |     └── FirmCard.jsx
+|    |     └── FirmModal.jsx
+|    |     └── KpiCards.jsx
+|    |     └── MunuListItem.jsx
+|    |     └── ProductModal.jsx
+|    |     └── ProductTable.jsx
 |    |     └── RegisterForm.jsx
-|    |     └── UpdateModal.jsx
-|    |     └── UsersPost.jsx
+|    |     └── SaleModal.jsx
+|    |     └── SaleTable.jsx
 │    ├── features
 │    │     └── autSlice.jsx
-|          └── blogSlice.jsx
+|          └── stockSlice.jsx
 │    ├── helper
-│    │     └── postTextSchema.js
 |    |     └── ToastNotify.js
 │    ├── hooks
 │    │     └── useAuthCall.jsx
-|    |     └── useBlogCall.jsx
+|    |     └── useAxios.jsx
+|    |     └── useStockCall.jsx
 │    ├── pages
-│    │     └── About.jsx
-|    |     └── Contact.jsx
-|    |     └── Draft.jsx
+│    │     └── Brands.jsx
+|    |     └── Dashboard.jsx
+|    |     └── Firms.jsx
 |    |     └── Home.jsx
 |    |     └── Login.jsx
-|    |     └── MyPost.jsx
-|    |     └── NotFound.jsx
-|    |     └── PostDetail.jsx
-|    |     └── Profile.jsx
+|    |     └── Products.jsx
+|    |     └── Purchases.jsx
 |    |     └── Register.jsx
+|    |     └── Sales.jsx
 │    ├── router
 │    │     └── AppRouter.jsx
 |    |     └── PrivateRouter.jsx
 │    ├── styles
+|    |     └── globalStyles.js
 │    ├── App.jsx
 │    ├── App.css
 │    ├── main.jsx
