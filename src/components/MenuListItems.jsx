@@ -78,7 +78,7 @@ export const MenuListItems = () => {
           >
             <ListItemButton>
               <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.title} />
+              <ListItemText primary={item.title} data-test='titleFirms' />
             </ListItemButton>
           </ListItem>
         ))}
