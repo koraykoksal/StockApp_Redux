@@ -31,6 +31,8 @@ describe("firms-test", () => {
         cy.get("input[name='image']").clear().type("https://docs.cypress.io/img/logo/cypress-logo-dark.png");
         cy.get("[data-test='firmsSbmt']").should("be.visible").click({ force: true });
 
+        //* logout
+        cy.get("[data-test='cypress_logouthBtn']").should("be.visible").click({ force: true });
 
     });
 });
