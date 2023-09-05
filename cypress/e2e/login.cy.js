@@ -3,6 +3,8 @@ describe("login-test", () => {
 
     it("login", () => {
 
+        cy.visit('http://localhost:3000/')
+       
         cy.url().should("include", "/");
         cy.get("[data-test='loginHeader']").contains("Login").should("be.visible");
         cy.get("[data-test='emailLogin']")
